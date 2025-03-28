@@ -1,0 +1,6 @@
+
+    https://www.gwtproject.org/doc/latest/tutorial/create.html
+    $> ~/bin/gwt-2.12.2/webAppCreator -out jwtPoc2 -templates maven,sample,readme com.example.foo.Foo
+
+    https://www.baeldung.com/gwt
+
