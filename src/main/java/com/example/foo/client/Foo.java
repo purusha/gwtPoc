@@ -3,6 +3,8 @@ package com.example.foo.client;
 import com.example.foo.shared.FieldVerifier;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.Document;
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.KeyCodes;
@@ -145,5 +147,14 @@ public class Foo implements EntryPoint {
     MyHandler handler = new MyHandler();
     sendButton.addClickHandler(handler);
     nameField.addKeyUpHandler(handler);
+
+    //append webcomponent
+    final Element element = Document.get().createElement("hello-world").cast();
+    element.setAttribute("style", "wc");
+    RootPanel.get().getElement().appendChild(element);
+
+    final Element externalPage = Document.get().createElement("external-page");
+    externalPage.setAttribute("style", "wc");
+    RootPanel.get().getElement().appendChild(externalPage);
   }
 }

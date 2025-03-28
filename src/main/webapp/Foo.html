@@ -24,6 +24,33 @@
     <!-- be added before this line.                -->
     <!--                                           -->
     <script type="text/javascript" language="javascript" src="foo/foo.nocache.js"></script>
+
+    <script>
+      class HelloWorld extends HTMLElement {
+        constructor() {
+          super();
+          const shadow = this.attachShadow({ mode: 'open' });
+          shadow.innerHTML = `<p style="color:blue;">Ciao da Web Component!</p>`;
+        }
+      }
+      customElements.define('hello-world', HelloWorld);
+    </script>
+
+    <script>
+      class ExternalPage extends HTMLElement {
+        constructor() {
+          super();
+          const shadow = this.attachShadow({ mode: 'open' });
+          const iframe = document.createElement('iframe');
+          iframe.src = 'https://www.wikipedia.org';
+          iframe.width = '90%';
+          iframe.height = '500px';
+          iframe.style.border = 'none';
+          shadow.appendChild(iframe);
+        }
+      }
+      customElements.define('external-page', ExternalPage);
+    </script>
   </head>
 
   <!--                                           -->
@@ -55,5 +82,6 @@
         <td colspan="2" style="color:red;" id="errorLabelContainer"></td>
       </tr>
     </table>
+
   </body>
 </html>
