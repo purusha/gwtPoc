@@ -149,12 +149,19 @@ public class Foo implements EntryPoint {
     nameField.addKeyUpHandler(handler);
 
     //append webcomponent
-    final Element element = Document.get().createElement("hello-world").cast();
-    element.setAttribute("style", "wc");
+    final Element element = Document.get().createElement("hello-world");
     RootPanel.get().getElement().appendChild(element);
 
     final Element externalPage = Document.get().createElement("external-page");
-    externalPage.setAttribute("style", "wc");
     RootPanel.get().getElement().appendChild(externalPage);
+
+    final Element dialog = Document.get().createElement("sl-dialog");
+    dialog.setPropertyString("label", "Dialog");
+    dialog.setPropertyString("class", "dialog-width");
+    dialog.setPropertyString("style", "--width: 50vw;");
+    dialog.setInnerHTML(
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.<sl-button slot=\"footer\" variant=\"primary\">Close</sl-button>");
+    dialog.setPropertyBoolean("open", true);
+    RootPanel.get().getElement().appendChild(dialog);
   }
 }
