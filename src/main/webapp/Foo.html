@@ -33,7 +33,9 @@
         constructor() {
           super();
           const shadow = this.attachShadow({ mode: 'open' });
-          shadow.innerHTML = `<p style="color:blue;">Ciao da Web Component!</p>`;
+          shadow.innerHTML = `<p style="color:blue;margin: auto;width: 50%;border: 3px solid red;padding: 10px;">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </p>`;
         }
       }
       customElements.define('hello-world', HelloWorld);
@@ -61,7 +63,7 @@
   <!-- you can leave the body empty if you want  -->
   <!-- to create a completely dynamic UI.        -->
   <!--                                           -->
-  <body>
+  <body style="background: #d3d3d3;">
 
     <!-- RECOMMENDED if your web app will not function without JavaScript enabled -->
     <noscript>
@@ -72,6 +74,8 @@
     </noscript>
 
     <h1>Web Application Starter Project</h1>
+
+    <div id="container"></div>
 
     <table align="center">
       <tr>
@@ -86,6 +90,6 @@
       </tr>
     </table>
 
-    <div id="container"></div>
+
   </body>
 </html>
